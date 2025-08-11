@@ -1,0 +1,23 @@
+{
+  "name": "typescript-masterclass-2025-edition-react-nodejs-project-backend",
+  "version": "1.0.0",
+  "description": "BackEnd project from the Udemy course: [TypeScript Masterclass 2025 Edition - React + NodeJS Project](https://www.udemy.com/course/typescript-course).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd/issues"
+  },
+  "homepage": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd#readme",
+  "dependencies": {
+    "express": "^5.0.1"
+  }
+}
