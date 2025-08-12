@@ -22,8 +22,11 @@
   },
   "homepage": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd#readme",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^5.0.1",
     "inversify": "^6.2.2",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.1",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
