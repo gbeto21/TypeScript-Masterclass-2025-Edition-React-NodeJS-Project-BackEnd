@@ -5,3 +5,7 @@ export interface ITask {
   priority: "low" | "normal" | "high";
   duedate: Date;
 }
+
+export interface IPartialTaskWithId extends Partial<ITask> {
+  _id: string;
+}

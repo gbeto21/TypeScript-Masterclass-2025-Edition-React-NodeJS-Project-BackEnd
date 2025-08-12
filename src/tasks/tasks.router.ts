@@ -1,7 +1,7 @@
 import { Router, type Request, type Response } from "express";
 import { TasksController } from "./tasks.controller.js";
 import { injectable, inject } from "inversify";
-import type { ITask } from "./tasks.interface.js";
+import type { IPartialTaskWithId, ITask } from "./tasks.interface.js";
 
 @injectable()
 export class TasksRouter {
@@ -28,9 +28,15 @@ export class TasksRouter {
       }
     );
 
-    this.router.patch("/update", (req: Request, res: Response) => {
-      const newTask = this.tasksController.handlePatchTasks();
-      res.json(newTask);
-    });
+    this.router.patch(
+      "/update",
+      async (req: Request<{}, {}, IPartialTaskWithId>, res: Response) => {
+        const updatedTask = await this.tasksController.handlePatchTasks(
+          req,
+          res
+        );
+        res.json(updatedTask);
+      }
+    );
   }
 }
