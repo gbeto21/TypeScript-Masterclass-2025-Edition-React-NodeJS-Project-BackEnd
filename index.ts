@@ -10,6 +10,8 @@ const app: Express = express();
 dotenv.config();
 
 const port = process.env.PORT;
+app.use(express.json());
+
 addRoutes(app);
 
 async function bootstrap() {

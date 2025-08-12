@@ -1,5 +1,9 @@
 import { injectable, inject } from "inversify";
 import { UserController } from "../user/user.controller.js";
+import { Task } from "./task.schema.js";
+import type { ITask } from "./tasks.interface.js";
+import type { Request, Response } from "express";
+import type { Document } from "mongoose";
 
 @injectable()
 export class TasksController {
@@ -14,13 +18,10 @@ export class TasksController {
     ];
   }
 
-  handlePostTask() {
-    console.log("🎖️ Log: ", this.userController.getUser());
-
-    return {
-      title: "Title of the tasks",
-      description: "Description for the description",
-    };
+  async handlePostTask(req: Request<{}, {}, ITask>, res: Response) {
+    const task: Document<unknown, any, ITask> = new Task(req.body);
+    await task.save();
+    return task;
   }
 
   handlePatchTasks() {
