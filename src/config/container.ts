@@ -4,5 +4,5 @@ import { Page } from "../page.js";
 
 export const container: Container = new Container();
 
-container.bind(User).toSelf();
-container.bind(Page).toSelf();
+container.bind(User).toSelf().inSingletonScope(); //example, don't use in production;
+container.bind(Page).toSelf().inTransientScope();
