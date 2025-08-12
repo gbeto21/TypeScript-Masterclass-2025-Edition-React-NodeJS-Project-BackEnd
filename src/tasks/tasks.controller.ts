@@ -9,13 +9,9 @@ import type { Document } from "mongoose";
 export class TasksController {
   constructor(@inject(UserController) private userController: UserController) {}
 
-  handleGetTasks() {
-    return [
-      {
-        title: "Title of the tasks",
-        description: "Description for the description",
-      },
-    ];
+  async handleGetTasks(req: Request, res: Response) {
+    const tasks = await Task.find();
+    return tasks;
   }
 
   async handlePostTask(req: Request<{}, {}, ITask>, res: Response) {

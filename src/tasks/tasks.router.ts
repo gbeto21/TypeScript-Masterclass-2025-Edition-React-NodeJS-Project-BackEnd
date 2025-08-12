@@ -15,8 +15,8 @@ export class TasksRouter {
   }
 
   private initializeRoutes() {
-    this.router.get("/", (req: Request, res: Response) => {
-      const tasks = this.tasksController.handleGetTasks();
+    this.router.get("/", async (req: Request, res: Response) => {
+      const tasks = await this.tasksController.handleGetTasks(req, res);
       res.json(tasks);
     });
 
