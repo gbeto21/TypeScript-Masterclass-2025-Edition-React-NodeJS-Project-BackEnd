@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import express from "express";
 import type { Request, Response, Express } from "express";
 import { Page } from "./src/page.js";

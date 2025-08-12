@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd#readme",
   "dependencies": {
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "inversify": "^6.2.2",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
