@@ -1,0 +1,43 @@
+{
+  "name": "typescript-masterclass-2025-edition-react-nodejs-project-backend",
+  "version": "1.0.0",
+  "description": "BackEnd project from the Udemy course: [TypeScript Masterclass 2025 Edition - React + NodeJS Project](https://www.udemy.com/course/typescript-course).",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd/issues"
+  },
+  "homepage": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd#readme",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.0.1",
+    "express-validator": "^7.2.1",
+    "http-status-codes": "^2.3.0",
+    "inversify": "^6.2.2",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.1",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}
