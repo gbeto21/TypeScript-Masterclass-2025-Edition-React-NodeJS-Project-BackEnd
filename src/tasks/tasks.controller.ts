@@ -1,21 +1,25 @@
 import { injectable, inject } from "inversify";
 import { UserController } from "../user/user.controller.js";
-import { Task } from "./task.schema.js";
 import type { IPartialTaskWithId, ITask } from "./tasks.interface.js";
 import type { Request, Response } from "express";
 import type { Document } from "mongoose";
+import { TaskService } from "./tasks.service.js";
 
 @injectable()
 export class TasksController {
-  constructor(@inject(UserController) private userController: UserController) {}
+  constructor(
+    @inject(UserController) private userController: UserController,
+    @inject(TaskService) private taskService: TaskService
+  ) {}
 
   async handleGetTasks(req: Request, res: Response) {
-    const tasks = await Task.find();
+    const tasks = await this.taskService.findAll();
     return tasks;
   }
 
   async handlePostTask(req: Request<{}, {}, ITask>, res: Response) {
-    const task: Document<unknown, any, ITask> = new Task(req.body);
+    const task: Document<unknown, any, ITask> =
+      await this.taskService.createTask(req.body);
     await task.save();
     return task;
   }
@@ -24,7 +28,7 @@ export class TasksController {
     req: Request<{}, {}, IPartialTaskWithId>,
     res: Response
   ) {
-    const task = await Task.findById(req.body._id);
+    const task = await this.taskService.findById(req.body._id);
     if (task) {
       task.title = req.body.title ? req.body.title : task.title;
       task.description = req.body.description
