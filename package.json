@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/gbeto21/TypeScript-Masterclass-2025-Edition-React-NodeJS-Project-BackEnd#readme",
   "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.0.1",
     "express-validator": "^7.2.1",
