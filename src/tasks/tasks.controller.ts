@@ -30,10 +30,12 @@ export class TasksController {
   }
 
   async handlePostTask(req: Request<{}, {}, ITask>, res: Response) {
-    const task: Document<unknown, any, ITask> =
-      await this.taskService.createTask(req.body);
-    await task.save();
-    return task;
+    const validatedData: ITask = matchedData(req);
+    try {
+      return await this.taskService.createTask(validatedData);
+    } catch (error) {
+      throw new Error(error instanceof Error ? error.message : String(error));
+    }
   }
 
   async handlePatchTasks(
