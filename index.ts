@@ -4,6 +4,7 @@ import type { Express } from "express";
 import { addRoutes } from "./src/config/routes.config.js";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
+import { responseFormatter } from "./src/middleware/responseFormatter.middleware.js";
 
 const app: Express = express();
 
@@ -11,6 +12,7 @@ dotenv.config();
 
 const port = process.env.PORT;
 app.use(express.json());
+app.use(responseFormatter);
 
 addRoutes(app);
 
