@@ -25,8 +25,10 @@ export class TasksRouter {
       getTasksValidator,
       async (req: Request, res: Response) => {
         const result = validationResult(req);
-        const tasks = await this.tasksController.handleGetTasks(req, res);
-        res.json(tasks);
+        if (result.isEmpty()) {
+          const allTasks = await this.tasksController.handleGetTasks(req, res);
+          res.status(StatusCodes.OK).json(allTasks);
+        } else res.status(StatusCodes.BAD_REQUEST).json(result.array());
       }
     );
 

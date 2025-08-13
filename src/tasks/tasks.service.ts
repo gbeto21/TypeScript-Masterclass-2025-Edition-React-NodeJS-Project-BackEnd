@@ -1,6 +1,6 @@
 import { injectable } from "inversify";
 import { Task } from "./task.schema.js";
-import { Model } from "mongoose";
+import { Model, type FilterQuery } from "mongoose";
 import type { ITask } from "./tasks.interface.js";
 import type { ITaskPagination } from "./interfaces/taskPagination.interface.js";
 
@@ -30,5 +30,9 @@ export class TaskService {
       .limit(pagination.limit)
       .skip(pagination.page - 1)
       .sort({ createdAt: pagination.order == "asc" ? 1 : -1 });
+  }
+
+  async countDocuments(filter?: FilterQuery<ITask>) {
+    return await this.taskModel.countDocuments(filter);
   }
 }
